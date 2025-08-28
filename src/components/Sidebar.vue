@@ -1,209 +1,96 @@
 <template>
-  <aside class="sidebar">
-    <!-- Logo -->
-    <div class="logo">
-      <img src="/logo.png" alt="Multidrop Logo" />
-      <Button icon="pi pi-bars" text class="menu-toggle" />
+  <aside
+    :class="[
+      'h-screen bg-[#111111] text-gray-200 flex flex-col transition-all duration-300',
+      collapsed ? 'w-24' : 'w-64'
+    ]"
+  >
+    <!-- Header -->
+    <div class="flex items-center px-4 h-16 border-b border-gray-800">
+      <!-- Botão toggle sempre à esquerda -->
+      <button
+        @click="toggleCollapse"
+        class="p-2 hover:bg-gray-800 rounded"
+      >
+        <i class="pi pi-bars text-xl"></i>
+      </button>
+
+      <!-- Logo só aparece quando expandido -->
+      <div v-if="!collapsed" class="flex items-center space-x-2 ml-3">
+        <img src="/logo.png" alt="Multidrop" class="h-8 w-auto" />
+      </div>
     </div>
 
-    <!-- Menu principal -->
-    <nav class="menu">
-      <RouterLink to="/dashboard" class="menu-item" active-class="active">
-        <i class="pi pi-home"></i>
-        <span>{{ $t("menu.dashboard") }}</span>
-      </RouterLink>
+    <!-- Menu -->
+    <nav class="flex-1 px-2 py-6 space-y-1">
+      <a
+        href="#"
+        class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-800"
+        :class="{ 'bg-green-600 text-white': active === 'dashboard' }"
+      >
+        <i class="pi pi-chart-bar text-lg w-6 text-center"></i>
+        <span v-if="!collapsed" class="whitespace-nowrap">Dashboard</span>
+      </a>
 
-      <RouterLink to="/" class="menu-item" active-class="active">
-        <i class="pi pi-shopping-cart"></i>
-        <span>{{ $t("menu.marketplace") }}</span>
-      </RouterLink>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-800">
+        <i class="pi pi-store text-lg w-6 text-center"></i>
+        <span v-if="!collapsed">Marketplace</span>
+      </a>
 
-      <RouterLink to="/produtos" class="menu-item" active-class="active">
-        <i class="pi pi-box"></i>
-        <span>{{ $t("menu.products") }}</span>
-      </RouterLink>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-800">
+        <i class="pi pi-box text-lg w-6 text-center"></i>
+        <span v-if="!collapsed">Products</span>
+      </a>
 
-      <RouterLink to="/afiliacoes" class="menu-item" active-class="active">
-        <i class="pi pi-users"></i>
-        <span>{{ $t('menu.affiliations') }}</span>
-      </RouterLink>
-
-      <RouterLink to="/integracoes" class="menu-item" active-class="active">
-        <i class="pi pi-link"></i>
-        <span>{{ $t("menu.integrations") }}</span>
-      </RouterLink>
+      <!-- Plano TAO -->
+      <div
+        class="flex items-center gap-3 px-3 py-2 rounded-lg border border-green-600 text-green-500"
+      >
+        <i class="pi pi-graduation-cap text-lg w-6 text-center"></i>
+        <div v-if="!collapsed">
+          <p class="font-medium">TAO</p>
+          <span class="text-xs text-gray-400">Members area</span>
+        </div>
+      </div>
     </nav>
 
-    <!-- Bloco do Portal -->
-    <div class="portal-box">
-      <i class="pi pi-graduation-cap"></i>
-      <div>
-        <span class="portal-title">TAO Admin</span>
-        <p class="portal-sub">Members area</p>
+    <!-- Footer -->
+    <div class="px-2 py-4 border-t border-gray-800 space-y-1">
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-800">
+        <i class="pi pi-credit-card text-lg w-6 text-center"></i>
+        <span v-if="!collapsed">Planos</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-800">
+        <i class="pi pi-question-circle text-lg w-6 text-center"></i>
+        <span v-if="!collapsed">Support</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-800">
+        <i class="pi pi-cog text-lg w-6 text-center"></i>
+        <span v-if="!collapsed">Settings</span>
+      </a>
+
+      <!-- User -->
+      <div class="flex items-center gap-3 mt-4 p-2 rounded-lg bg-gray-800">
+        <img
+          src="https://randomuser.me/api/portraits/men/68.jpg"
+          class="h-10 w-10 rounded-full"
+        />
+        <div v-if="!collapsed">
+          <p class="text-sm font-medium">Denis Oliveira</p>
+          <span class="text-xs text-gray-400">Dev3loper</span>
+        </div>
       </div>
-      <i class="pi pi-angle-right arrow"></i>
-    </div>
-
-    <hr class="divider" />
-
-    <!-- Menu secundário -->
-    <nav class="menu secondary">
-      <RouterLink to="/support" class="menu-item" active-class="active">
-        <i class="pi pi-question-circle"></i>
-        <span>{{ $t("menu.support") }}</span>
-      </RouterLink>
-
-      <RouterLink to="/settings" class="menu-item" active-class="active">
-        <i class="pi pi-cog"></i>
-        <span>{{ $t("menu.settings") }}</span>
-      </RouterLink>
-    </nav>
-
-    <!-- Perfil do usuário -->
-    <div class="user-profile">
-      <img class="avatar" src="https://i.pravatar.cc/40?img=3" alt="User" />
-      <div class="user-info">
-        <p class="name">Denis Oliveira</p>
-        <p class="role">Dev3loper</p>
-      </div>
-      <Button icon="pi pi-ellipsis-v" text />
     </div>
   </aside>
 </template>
 
 <script setup>
-import { RouterLink } from "vue-router"
-import Button from "primevue/button"
+import { ref } from 'vue'
+
+const collapsed = ref(false)
+const active = ref('dashboard')
+
+const toggleCollapse = () => {
+  collapsed.value = !collapsed.value
+}
 </script>
-
-<style scoped>
-.sidebar {
-  width: 260px;
-  height: 100vh;
-  background: #171717; /* preto correto */
-  color: #f9fafb;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: fixed;
-  left: 0;
-  top: 0;
-}
-
-.logo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid #262626;
-}
-
-.logo img {
-  height: 32px;
-}
-
-.menu {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-}
-
-.menu-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1.25rem;
-  color: #d4d4d4;
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: background 0.2s, color 0.2s;
-}
-
-.menu-item i {
-  font-size: 1.2rem;
-  width: 20px;
-  text-align: center;
-}
-
-.menu-item:hover {
-  background: #262626;
-  color: #22c55e;
-}
-
-.menu-item.active {
-  background: #262626;
-  border-left: 3px solid #22c55e;
-  color: #22c55e;
-}
-
-.portal-box {
-  margin: 1rem;
-  padding: 1rem;
-  background: #262626;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.portal-box i {
-  font-size: 1.2rem;
-  color: #22c55e;
-}
-
-.portal-title {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: #fff;
-}
-
-.portal-sub {
-  font-size: 0.8rem;
-  color: #a3a3a3;
-  margin: 0;
-}
-
-.portal-box .arrow {
-  margin-left: auto;
-  color: #9ca3af;
-}
-
-.divider {
-  border: none;
-  border-top: 1px solid #262626;
-  margin: 0.8rem 0;
-}
-
-.user-profile {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.8rem 1rem;
-  background: #262626;
-  border-radius: 8px;
-  margin: 1rem;
-}
-
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
-.user-info {
-  flex: 1;
-}
-
-.user-info .name {
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin: 0;
-  color: #fff;
-}
-
-.user-info .role {
-  font-size: 0.8rem;
-  color: #a3a3a3;
-  margin: 0;
-}
-</style>

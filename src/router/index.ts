@@ -10,6 +10,7 @@ import Success from '../pages/Success.vue'
 import SetPassword from '../pages/SetPassword.vue'
 
 // app pages
+import Marketplace from '../pages/Marketplace.vue'
 import Dashboard from '../pages/Dashboard.vue'
 import Produtos from '../pages/Produtos.vue'
 import ProdutoDetalhes from '../pages/ProdutoDetalhes.vue'
@@ -38,6 +39,7 @@ const routes = [
     children: [
       { path: 'dashboard', name: 'Dashboard', component: Dashboard },
       { path: 'produtos', name: 'Produtos', component: Produtos },
+      { path: 'marketplace', name: 'Marketplace', component: Marketplace },
       {
         path: 'produto-detalhes/:id',
         name: 'ProdutoDetalhes',
