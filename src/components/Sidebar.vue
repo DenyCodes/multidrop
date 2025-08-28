@@ -13,7 +13,7 @@
         <span>{{ $t("menu.dashboard") }}</span>
       </RouterLink>
 
-      <RouterLink to="/dashboard" class="menu-item" active-class="active">
+      <RouterLink to="/" class="menu-item" active-class="active">
         <i class="pi pi-shopping-cart"></i>
         <span>{{ $t("menu.marketplace") }}</span>
       </RouterLink>
