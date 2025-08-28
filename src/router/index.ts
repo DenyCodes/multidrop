@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { defineComponent } from 'vue'
-
+import { useRouter } from 'vue-router'
 import Affiliations from '../pages/Affiliations.vue'
 import Produtos from '../pages/Produtos.vue'
 import ProdutoDetalhes from '../pages/ProdutoDetalhes.vue'

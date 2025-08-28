@@ -32,7 +32,6 @@ import { useRouter } from "vue-router"
 import DataTable from "primevue/datatable"
 import Column from "primevue/column"
 import Button from "primevue/button"
-
 // Tipagem do produto
 interface Produto {
   id: number
