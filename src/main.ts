@@ -6,6 +6,7 @@ import pt from './locales/pt.json'
 import en from './locales/en.json'
 import router from './router'
 import './index.css'
+import 'primeicons/primeicons.css'
 
 // CSS PrimeVue
 import 'primevue/resources/themes/lara-light-blue/theme.css'

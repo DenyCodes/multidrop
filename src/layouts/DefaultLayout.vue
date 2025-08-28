@@ -1,43 +1,23 @@
 <template>
-  <div class="layout">
-    <!-- Sidebar fixa -->
+  <div class="flex h-screen bg-gray-100">
+    <!-- Sidebar -->
     <Sidebar />
 
-    <!-- Conteúdo principal -->
-    <div class="content">
-      <!-- <Header /> -->
-      <main class="main-content">
+    <!-- Main content -->
+    <div class="flex-1 flex flex-col">
+      <!-- Topbar -->
+      <header class="h-16 bg-white flex items-center px-6 shadow">
+        <h1 class="text-lg font-semibold">Dashboard</h1>
+      </header>
+
+      <!-- Conteúdo -->
+      <main class="flex-1 overflow-y-auto p-6">
         <router-view />
       </main>
-
-      <Footer />
     </div>
   </div>
 </template>
 
 <script setup>
-import Sidebar from '../components/Sidebar.vue'
-import Footer from '../components/Footer.vue'
+import Sidebar from '@/components/Sidebar.vue'
 </script>
-
-<style scoped>
-.layout {
-  display: flex;
-  height: 100vh;
-  width: 100%;
-  background: #f9fafb;
-}
-
-.content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin-left: 260px; /* largura da sidebar */
-}
-
-.main-content {
-  flex: 1;
-  padding: 1.5rem;
-  overflow-y: auto;
-}
-</style>
