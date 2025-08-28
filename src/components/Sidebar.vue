@@ -107,12 +107,12 @@
       <!-- User -->
       <div class="flex items-center gap-3 mt-6 p-3 rounded-lg bg-[#1A1A1A]">
         <img
-          src="https://randomuser.me/api/portraits/women/68.jpg"
+          src="https://randomuser.me/api/portraits/men/68.jpg"
           class="h-10 w-10 rounded-full"
         />
         <div v-if="!collapsed">
-          <p class="text-sm font-medium">Ellen Piotrowski</p>
-          <span class="text-xs text-gray-400">Newcomer</span>
+          <p class="text-sm font-medium">Denis Oliveira</p>
+          <span class="text-xs text-gray-400">Desenvolvedor</span>
         </div>
       </div>
     </div>

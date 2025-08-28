@@ -63,7 +63,7 @@
 
           <!-- Avatar do usuário -->
           <img
-            src="https://randomuser.me/api/portraits/men/32.jpg"
+            src="https://randomuser.me/api/portraits/men/68.jpg"
             alt="User"
             class="w-10 h-10 rounded-full border"
           />
