@@ -4,10 +4,9 @@
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
       <img src="/logo.png" alt="Multidrop" class="h-10 w-auto mb-4 sm:mb-0" />
       <div class="text-sm text-gray-600 text-center sm:text-right">
-        Você está logado(a) como: <span class="font-medium">{{ user.email }}</span>.
-        <button class="text-green-600 hover:underline ml-1" @click="logout">
-          Log out
-        </button>
+        Você está logado(a) como: <span class="font-medium">{{ user.email }}</span
+        >.
+        <button class="text-green-600 hover:underline ml-1" @click="logout">Log out</button>
       </div>
     </div>
 
@@ -15,7 +14,9 @@
     <h1 class="text-xl sm:text-2xl font-bold text-[#171717] mb-4">Suas compras</h1>
 
     <!-- Aviso -->
-    <div class="bg-blue-50 border border-blue-200 text-blue-700 text-sm p-3 rounded-md mb-8 text-center">
+    <div
+      class="bg-blue-50 border border-blue-200 text-blue-700 text-sm p-3 rounded-md mb-8 text-center"
+    >
       Ao solicitar um reembolso, a sua compra será cancelada e você não terá mais acesso ao produto.
     </div>
 
