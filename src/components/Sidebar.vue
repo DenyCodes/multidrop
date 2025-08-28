@@ -2,16 +2,13 @@
   <aside
     :class="[
       'h-screen bg-[#0B0B0B] text-gray-200 flex flex-col transition-all duration-300',
-      collapsed ? 'w-24' : 'w-64'
+      collapsed ? 'w-24' : 'w-64',
     ]"
   >
     <!-- Header -->
     <div class="flex items-center px-4 h-16 border-b border-gray-800">
       <!-- Botão toggle sempre à esquerda -->
-      <button
-        @click="toggleCollapse"
-        class="p-2 hover:bg-gray-800 rounded"
-      >
+      <button @click="toggleCollapse" class="p-2 hover:bg-gray-800 rounded">
         <i class="pi pi-bars text-xl"></i>
       </button>
 
@@ -27,9 +24,11 @@
       <router-link
         to="/dashboard"
         class="flex items-center gap-4 px-3 py-3 rounded-lg"
-        :class="isActive('/dashboard')
-          ? 'bg-[#1A1A1A] text-green-500 font-medium'
-          : 'hover:bg-gray-800 text-gray-300'"
+        :class="
+          isActive('/dashboard')
+            ? 'bg-[#1A1A1A] text-green-500 font-medium'
+            : 'hover:bg-gray-800 text-gray-300'
+        "
       >
         <i class="pi pi-chart-bar text-lg w-6 text-center"></i>
         <span v-if="!collapsed" class="whitespace-nowrap">Dashboard</span>
@@ -39,9 +38,11 @@
       <router-link
         to="/marketplace"
         class="flex items-center gap-4 px-3 py-3 rounded-lg"
-        :class="isActive('/marketplace')
-          ? 'bg-[#1A1A1A] text-green-500 font-medium'
-          : 'hover:bg-gray-800 text-gray-300'"
+        :class="
+          isActive('/marketplace')
+            ? 'bg-[#1A1A1A] text-green-500 font-medium'
+            : 'hover:bg-gray-800 text-gray-300'
+        "
       >
         <i class="pi pi-shopping-cart text-lg w-6 text-center"></i>
         <span v-if="!collapsed" class="whitespace-nowrap">Marketplace</span>
@@ -51,9 +52,11 @@
       <router-link
         to="/produtos"
         class="flex items-center gap-4 px-3 py-3 rounded-lg"
-        :class="isActive('/products')
-          ? 'bg-[#1A1A1A] text-green-500 font-medium'
-          : 'hover:bg-gray-800 text-gray-300'"
+        :class="
+          isActive('/products')
+            ? 'bg-[#1A1A1A] text-green-500 font-medium'
+            : 'hover:bg-gray-800 text-gray-300'
+        "
       >
         <i class="pi pi-box text-lg w-6 text-center"></i>
         <span v-if="!collapsed" class="whitespace-nowrap">Products</span>
@@ -66,8 +69,8 @@
       >
         <i class="pi pi-graduation-cap text-lg w-6 text-center"></i>
         <div v-if="!collapsed">
-          <p class="font-semibold">TAO</p>
-          <span class="text-xs text-gray-400">Members area</span>
+          <p class="font-semibold">REEMBOLSO</p>
+          <span class="text-xs text-gray-400">REEMBOLSO</span>
         </div>
       </router-link>
     </nav>
