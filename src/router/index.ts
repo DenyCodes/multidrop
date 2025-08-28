@@ -10,6 +10,7 @@ import Success from '../pages/Success.vue'
 import SetPassword from '../pages/SetPassword.vue'
 
 // app pages
+import Compras from '../pages/Purchases.vue'
 import Refund from '../pages/RefundRequest.vue'
 import Marketplace from '../pages/Marketplace.vue'
 import Dashboard from '../pages/Dashboard.vue'
@@ -42,6 +43,7 @@ const routes = [
       { path: 'produtos', name: 'Produtos', component: Produtos },
       { path: 'marketplace', name: 'Marketplace', component: Marketplace },
       { path: 'refund', name: 'Refund', component: Refund},
+      { path: 'compras', name: 'Compras', component: Compras},
       {
         path: 'produto-detalhes/:id',
         name: 'ProdutoDetalhes',
