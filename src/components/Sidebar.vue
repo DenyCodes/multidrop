@@ -53,7 +53,7 @@
         to="/produtos"
         class="flex items-center gap-4 px-3 py-3 rounded-lg"
         :class="
-          isActive('/products')
+          isActive('/produtos')
             ? 'bg-[#1A1A1A] text-green-500 font-medium'
             : 'hover:bg-gray-800 text-gray-300'
         "
