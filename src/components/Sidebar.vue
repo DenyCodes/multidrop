@@ -18,7 +18,6 @@
       <!-- Logo só aparece quando expandido -->
       <div v-if="!collapsed" class="flex items-center space-x-2 ml-3">
         <img src="/logo.png" alt="Multidrop" class="h-8 w-auto" />
-        <span class="font-bold text-lg tracking-wide">MULTIDROP</span>
       </div>
     </div>
 
