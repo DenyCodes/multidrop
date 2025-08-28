@@ -1,0 +1,41 @@
+{
+  "menu": {
+    "dashboard": "Dashboard",
+    "marketplace": "Marketplace",
+    "products": "Produtos",
+    "affiliations": "Minhas afiliações",
+    "sales": "Vendas",
+    "integrations": "Integrações",
+    "settings": "Configurações",
+    "support": "Suporte",
+    "home": "Início",
+    "contact": "Contato"
+  },
+  "affiliations": {
+    "title": "Afiliações",
+    "subtitle": "Junte-se à Multidrop e aproveite nossos benefícios exclusivos.",
+    "options": {
+      "basic": {
+        "title": "Plano Básico",
+        "desc": "Ideal para quem está começando."
+      },
+      "pro": {
+        "title": "Plano Profissional",
+        "desc": "Para quem já tem experiência no mercado."
+      },
+      "enterprise": {
+        "title": "Plano Empresarial",
+        "desc": "Solução completa para grandes empresas."
+      }
+    },
+    "cta": "Quero me afiliar",
+    "my": "Minhas afiliações",
+    "search": "Buscar",
+    "category": "Categorias",
+    "type": "Tipo",
+    "date": "Data de afiliação"
+  },
+  "footer": {
+    "rights": "© 2025 Multidrop - Todos os direitos reservados"
+  }
+}
