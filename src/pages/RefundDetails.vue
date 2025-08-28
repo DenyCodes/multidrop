@@ -1,31 +1,45 @@
 <template>
-  <div class="min-h-screen bg-gray-50 px-6 py-10">
+  <div class="min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-20 py-10">
     <!-- Header -->
     <div class="flex justify-between items-center mb-8">
       <button class="text-sm text-gray-600 hover:underline" @click="goBack">← Voltar</button>
       <img src="/logo.png" alt="Multidrop" class="h-10 w-auto" />
       <div class="text-sm text-gray-600">
-        Você está logado(a) como <span class="font-medium">{{ user.email }}</span>.
+        Você está logado(a) como <span class="font-medium">{{ user.email }}</span
+        >.
         <button @click="logout" class="text-green-600 hover:underline ml-1">Log out</button>
       </div>
     </div>
 
     <!-- Título -->
-    <h1 class="text-[28px] font-bold text-[#171717] mb-8">Solicitar reembolso</h1>
+    <h1 class="text-xl sm:text-2xl lg:text-[28px] font-bold text-[#171717] mb-6">
+      Solicitar reembolso
+    </h1>
 
     <!-- Card: Detalhes do produto -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-6 mb-6">
-      <h2 class="font-semibold text-gray-800 mb-4">Detalhes do produto</h2>
-      <p class="text-sm text-gray-700"><span class="font-medium">Nome do produto:</span> {{ product.name }}</p>
-      <p class="text-sm text-gray-700"><span class="font-medium">Valor:</span> € {{ product.price }}</p>
-      <p class="text-sm text-gray-700"><span class="font-medium">Data limite para solicitar reembolso:</span> {{ product.refundDeadline }}</p>
-      <p class="text-sm text-gray-700"><span class="font-medium">Método de pagamento:</span> {{ product.paymentMethod }}</p>
-      <p class="text-sm text-gray-700"><span class="font-medium">E-mail de suporte do vendedor:</span> {{ product.supportEmail }}</p>
+    <div class="bg-white rounded-lg border shadow-sm p-4 sm:p-6 mb-6 max-w-3xl mx-auto">
+      <h2 class="font-semibold mb-4 text-gray-800">Detalhes do produto</h2>
+      <p class="text-sm text-gray-700">
+        <span class="font-medium">Nome do produto:</span> {{ product.name }}
+      </p>
+      <p class="text-sm text-gray-700">
+        <span class="font-medium">Valor:</span> € {{ product.price }}
+      </p>
+      <p class="text-sm text-gray-700">
+        <span class="font-medium">Data limite para solicitar reembolso:</span>
+        {{ product.refundDeadline }}
+      </p>
+      <p class="text-sm text-gray-700">
+        <span class="font-medium">Método de pagamento:</span> {{ product.paymentMethod }}
+      </p>
+      <p class="text-sm text-gray-700">
+        <span class="font-medium">E-mail de suporte do vendedor:</span> {{ product.supportEmail }}
+      </p>
     </div>
 
     <!-- Card: Motivo do reembolso -->
-    <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-6 mb-6">
-      <h2 class="font-semibold text-gray-800 mb-4">Motivo do reembolso</h2>
+    <div class="bg-white rounded-lg border shadow-sm p-4 sm:p-6 mb-6 max-w-3xl mx-auto">
+      <h2 class="font-semibold mb-4 text-gray-800">Motivo do reembolso</h2>
       <div class="space-y-3 mb-4">
         <label v-for="(reason, index) in reasons" :key="index" class="flex items-center gap-2">
           <input type="radio" :value="reason" v-model="selectedReason" class="text-green-600" />
@@ -39,22 +53,26 @@
         v-model="extraInfo"
         rows="3"
         placeholder="Opcional"
-        class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700
-               focus:ring-2 focus:ring-green-600 focus:outline-none"
+        class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-green-600 focus:outline-none"
       ></textarea>
     </div>
 
     <!-- Botão -->
     <button
       @click="submitRefund"
-      class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md font-medium transition"
+      class="w-full sm:w-auto px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-md font-medium"
     >
       Solicitar Reembolso
     </button>
 
     <!-- Modal de sucesso -->
-    <div v-if="showSuccess" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div class="bg-white rounded-xl shadow-lg p-8 w-[480px] h-[260px] flex flex-col items-center justify-center relative">
+    <div
+      v-if="showSuccess"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    >
+      <div
+        class="bg-white rounded-xl shadow-lg p-8 w-[480px] h-[260px] flex flex-col items-center justify-center relative"
+      >
         <!-- Ícone -->
         <div class="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-4">
           <span class="text-green-600 text-3xl">✔</span>
@@ -65,8 +83,7 @@
 
         <!-- Texto -->
         <p class="text-center text-gray-600 text-sm mb-6 leading-relaxed">
-          Você receberá um e-mail com o status do seu reembolso.
-          Verifique a sua caixa de SPAM.
+          Você receberá um e-mail com o status do seu reembolso. Verifique a sua caixa de SPAM.
         </p>
 
         <!-- Botão fechar -->
