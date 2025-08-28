@@ -1,58 +1,77 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { defineComponent } from 'vue'
-import { useRouter } from 'vue-router'
-import Affiliations from '../pages/Affiliations.vue'
+
+// layouts
+import AuthLayout from '../layouts/AuthLayout.vue'
+import DefaultLayout from '../layouts/DefaultLayout.vue'
+
+// auth pages
+import Login from '../pages/Login.vue'
+import Success from '../pages/Success.vue'
+import SetPassword from '../pages/SetPassword.vue'
+
+// app pages
+import Dashboard from '../pages/Dashboard.vue'
 import Produtos from '../pages/Produtos.vue'
 import ProdutoDetalhes from '../pages/ProdutoDetalhes.vue'
+import Affiliations from '../pages/Affiliations.vue'
+import { defineComponent } from 'vue'
 
 const routes = [
+  // Rotas de autenticação (sem sidebar/footer)
+  {
+    path: '/auth',
+    component: AuthLayout,
+    children: [
+      { path: 'login', name: 'Login', component: Login },
+      { path: 'success', name: 'Success', component: Success },
+      { path: 'set-password', name: 'SetPassword', component: SetPassword },
+    ],
+  },
+
+  // Redireciona raiz para login
+  { path: '/', redirect: '/login' },
+  { path: '/login', redirect: '/auth/login' },
+  // Rotas internas (com sidebar/footer)
   {
     path: '/',
-    name: 'Dashboard',
-    component: defineComponent({ template: '<div>Dashboard</div>' }),
-  },
-  {
-    path: '/marketplace',
-    name: 'Marketplace',
-    component: defineComponent({ template: '<div>Marketplace</div>' }),
-  },
-  {
-    path: '/produtos',
-    name: 'Produtos',
-    component: Produtos,
-  },
-  {
-  path: '/ProdutoDetalhes/:id',
-  name: 'ProdutoDetalhes',
-  component: ProdutoDetalhes,
-  props: true
-  },
-  {
-    path: '/afiliacoes',
-    name: 'AffiliationsPT',
-    component: Affiliations,
-    meta: { locale: 'pt' },
-  },
-  {
-    path: '/affiliations',
-    name: 'AffiliationsEN',
-    component: Affiliations,
-    meta: { locale: 'en' },
-  },
-  {
-    path: '/integracoes',
-    name: 'Integracoes',
-    component: defineComponent({ template: '<div>Integrações</div>' }),
-  },
-  {
-    path: '/settings',
-    name: 'Settings',
-    component: defineComponent({ template: '<div>Configurações</div>' }),
-  },
-  {
-    path: '/support',
-    name: 'Support',
-    component: defineComponent({ template: '<div>Suporte</div>' }),
+    component: DefaultLayout,
+    children: [
+      { path: 'dashboard', name: 'Dashboard', component: Dashboard },
+      { path: 'produtos', name: 'Produtos', component: Produtos },
+      {
+        path: 'produto-detalhes/:id',
+        name: 'ProdutoDetalhes',
+        component: ProdutoDetalhes,
+        props: true,
+      },
+      {
+        path: 'afiliacoes',
+        name: 'AffiliationsPT',
+        component: Affiliations,
+        meta: { locale: 'pt' },
+      },
+      {
+        path: 'affiliations',
+        name: 'AffiliationsEN',
+        component: Affiliations,
+        meta: { locale: 'en' },
+      },
+      {
+        path: 'integracoes',
+        name: 'Integracoes',
+        component: defineComponent({ template: '<div>Integrações</div>' }),
+      },
+      {
+        path: 'settings',
+        name: 'Settings',
+        component: defineComponent({ template: '<div>Configurações</div>' }),
+      },
+      {
+        path: 'support',
+        name: 'Support',
+        component: defineComponent({ template: '<div>Suporte</div>' }),
+      },
+    ],
   },
 ]
 

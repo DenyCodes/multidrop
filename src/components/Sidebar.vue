@@ -8,12 +8,12 @@
 
     <!-- Menu principal -->
     <nav class="menu">
-      <RouterLink to="/" class="menu-item" active-class="active">
+      <RouterLink to="/dashboard" class="menu-item" active-class="active">
         <i class="pi pi-home"></i>
         <span>{{ $t("menu.dashboard") }}</span>
       </RouterLink>
 
-      <RouterLink to="/marketplace" class="menu-item" active-class="active">
+      <RouterLink to="/dashboard" class="menu-item" active-class="active">
         <i class="pi pi-shopping-cart"></i>
         <span>{{ $t("menu.marketplace") }}</span>
       </RouterLink>
@@ -22,7 +22,7 @@
         <i class="pi pi-box"></i>
         <span>{{ $t("menu.products") }}</span>
       </RouterLink>
-      
+
       <RouterLink to="/afiliacoes" class="menu-item" active-class="active">
         <i class="pi pi-users"></i>
         <span>{{ $t('menu.affiliations') }}</span>
