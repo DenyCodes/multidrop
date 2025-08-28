@@ -44,7 +44,7 @@
           ? 'bg-[#1A1A1A] text-green-500 font-medium'
           : 'hover:bg-gray-800 text-gray-300'"
       >
-        <i class="pi pi-store text-lg w-6 text-center"></i>
+        <i class="pi pi-shopping-cart text-lg w-6 text-center"></i>
         <span v-if="!collapsed" class="whitespace-nowrap">Marketplace</span>
       </router-link>
 
