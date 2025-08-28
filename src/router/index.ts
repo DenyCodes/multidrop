@@ -18,6 +18,7 @@ import Produtos from '../pages/Produtos.vue'
 import ProdutoDetalhes from '../pages/ProdutoDetalhes.vue'
 import Affiliations from '../pages/Affiliations.vue'
 import { defineComponent } from 'vue'
+import RefundDetails from '@/pages/RefundDetails.vue'
 
 const routes = [
   // Rotas de autenticação (sem sidebar/footer)
@@ -44,6 +45,7 @@ const routes = [
       { path: 'marketplace', name: 'Marketplace', component: Marketplace },
       { path: 'refund', name: 'Refund', component: Refund},
       { path: 'compras', name: 'Compras', component: Compras},
+      { path: 'refundDetails', name: 'RefundDetails', component: RefundDetails},
       {
         path: 'produto-detalhes/:id',
         name: 'ProdutoDetalhes',

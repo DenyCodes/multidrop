@@ -48,7 +48,7 @@
         <div class="flex flex-col items-end gap-3">
           <button
             v-if="!purchase.refunded"
-            @click="requestRefund(index)"
+            @click="detalhes"
             class="bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm px-4 py-2 rounded-md shadow-sm"
           >
             Solicitar reembolso
@@ -75,7 +75,9 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const user = ref({
   email: 'john@liberttar.com',
 })
@@ -113,5 +115,9 @@ const logout = () => {
 
 const requestRefund = (index) => {
   purchases.value[index].refunded = true
+}
+
+const detalhes = () => {
+  router.push('/refundDetails')
 }
 </script>
