@@ -3,7 +3,7 @@
     <div class="max-w-6xl mx-auto">
       <!-- Botão voltar -->
       <button
-        @click="$router.back()"
+        @click="router.back()"
         class="flex items-center text-sm text-blue-600 hover:underline mb-4"
       >
         ← Voltar para minhas afiliações
@@ -74,7 +74,8 @@
           <!-- Informações principais -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
             <div class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-              <p><strong>Página de vendas:</strong>
+              <p>
+                <strong>Página de vendas:</strong>
                 <a
                   :href="produto.link"
                   class="text-blue-600 hover:underline ml-1"
@@ -187,9 +188,11 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue"
-import { useRoute } from "vue-router"
+import { useRoute, useRouter } from "vue-router"
 
 const route = useRoute()
+const router = useRouter()
+
 const produto = ref<any>(null)
 const aba = ref("detalhes")
 
@@ -213,34 +216,13 @@ onMounted(() => {
 💡 Mein Online-Kurs Fit mit Dr. Christine Theiss hilft Menschen dabei, nachhaltig abzunehmen, Bewegung mühelos in den Alltag zu integrieren und sich endlich wieder wohl in ihrem Körper zu fühlen.`,
     imagem: "https://picsum.photos/400/200?random=1",
     ofertas: [
-      {
-        nome: "Checkout",
-        preco: "€ 150,00",
-        profit: "€ 120,00",
-        comissao: "50%"
-      },
-      {
-        nome: "Pré-lançamento",
-        preco: "€ 150,00",
-        profit: "€ 120,00",
-        comissao: "50%"
-      },
-      {
-        nome: "Páscoa 2025",
-        preco: "€ 150,00",
-        profit: "€ 120,00",
-        comissao: "50%"
-      }
+      { nome: "Checkout", preco: "€ 150,00", profit: "€ 120,00", comissao: "50%" },
+      { nome: "Pré-lançamento", preco: "€ 150,00", profit: "€ 120,00", comissao: "50%" },
+      { nome: "Páscoa 2025", preco: "€ 150,00", profit: "€ 120,00", comissao: "50%" }
     ],
     links: [
-      {
-        label: "Materiais de campanha",
-        url: "https://mailchimp.com/pt-br/help/about-api-keys/"
-      },
-      {
-        label: "Imagens",
-        url: "https://mailchimp.com/pt-br/help/about-api-keys/"
-      }
+      { label: "Materiais de campanha", url: "https://mailchimp.com/pt-br/help/about-api-keys/" },
+      { label: "Imagens", url: "https://mailchimp.com/pt-br/help/about-api-keys/" }
     ]
   }
 })
