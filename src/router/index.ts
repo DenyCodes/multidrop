@@ -19,6 +19,7 @@ import ProdutoDetalhes from '../pages/ProdutoDetalhes.vue'
 import Affiliations from '../pages/Affiliations.vue'
 import { defineComponent } from 'vue'
 import RefundDetails from '@/pages/RefundDetails.vue'
+import Dash from '@/dash.vue'
 
 const routes = [
   // Rotas de autenticação (sem sidebar/footer)
@@ -29,6 +30,7 @@ const routes = [
       { path: 'login', name: 'Login', component: Login },
       { path: 'success', name: 'Success', component: Success },
       { path: 'set-password', name: 'SetPassword', component: SetPassword },
+      { path: 'Dash', name: 'Dash', component: Dash },
     ],
   },
 
