@@ -30,7 +30,7 @@ const routes = [
       { path: 'login', name: 'Login', component: Login },
       { path: 'success', name: 'Success', component: Success },
       { path: 'set-password', name: 'SetPassword', component: SetPassword },
-      { path: 'Dash', name: 'Dash', component: Dash },
+      { path: 'dash', name: 'dash', component: Dash },
     ],
   },
 
