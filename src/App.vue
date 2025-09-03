@@ -1,6 +1,5 @@
 <template>
   <router-view />
-  <dash />
 </template>
 
 <script setup>
