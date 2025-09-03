@@ -10,6 +10,7 @@ import Success from '../pages/Success.vue'
 import SetPassword from '../pages/SetPassword.vue'
 
 // app pages
+import Dash from '../pages/Dash.vue'
 import Compras from '../pages/Purchases.vue'
 import Refund from '../pages/RefundRequest.vue'
 import Marketplace from '../pages/Marketplace.vue'
@@ -19,7 +20,6 @@ import ProdutoDetalhes from '../pages/ProdutoDetalhes.vue'
 import Affiliations from '../pages/Affiliations.vue'
 import { defineComponent } from 'vue'
 import RefundDetails from '@/pages/RefundDetails.vue'
-import Dash from '@/pages/Dash.vue'
 const routes = [
   // Rotas de autenticação (sem sidebar/footer)
   {
