@@ -19,7 +19,6 @@ import ProdutoDetalhes from '../pages/ProdutoDetalhes.vue'
 import Affiliations from '../pages/Affiliations.vue'
 import { defineComponent } from 'vue'
 import RefundDetails from '@/pages/RefundDetails.vue'
-import Dash from '../pages/dash.vue'
 
 const routes = [
   // Rotas de autenticação (sem sidebar/footer)
