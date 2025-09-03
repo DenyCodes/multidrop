@@ -1,5 +1,26 @@
 # multidrop-frontend
 
+## 🎯 Objetivo
+- Reproduzir fielmente o layout proposto no Figma.  
+- Implementar tradução **bilíngue instantânea** (Português ↔ Inglês).  
+- Utilizar corretamente a biblioteca de componentes **PrimeVue**.  
+- Garantir código limpo, reutilizável e bem estruturado.  
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+- [Vue.js](https://vuejs.org/)  
+- [PrimeVue](https://primevue.org/)  
+- [Vue I18n](https://vue-i18n.intlify.dev/)  
+- [Tailwind CSS](https://tailwindcss.com/) *(opcional, se utilizado para estilização adicional)*  
+
+---
+
+## 📐 Layout
+O design base foi fornecido no Figma:  
+👉 [Acessar Layout](https://www.figma.com/design/Vh72vYbnVRU0GTEM8KIm3O/Desktop---Multidrop?node-id=7944-8077&t=QukncxyC5m0IYjhS-1)
+
+---
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
