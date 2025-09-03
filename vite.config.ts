@@ -5,7 +5,6 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 export default defineConfig({
-  base: '/', // importante para deploy no domínio raiz
   plugins: [
     vue(),
     vueJsx(),
