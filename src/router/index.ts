@@ -19,7 +19,7 @@ import ProdutoDetalhes from '../pages/ProdutoDetalhes.vue'
 import Affiliations from '../pages/Affiliations.vue'
 import { defineComponent } from 'vue'
 import RefundDetails from '@/pages/RefundDetails.vue'
-import Dash from '@/dash.vue'
+import Dash from '../pages/dash.vue'
 
 const routes = [
   // Rotas de autenticação (sem sidebar/footer)
@@ -45,9 +45,9 @@ const routes = [
       { path: 'dashboard', name: 'Dashboard', component: Dashboard },
       { path: 'produtos', name: 'Produtos', component: Produtos },
       { path: 'marketplace', name: 'Marketplace', component: Marketplace },
-      { path: 'refund', name: 'Refund', component: Refund},
-      { path: 'compras', name: 'Compras', component: Compras},
-      { path: 'refundDetails', name: 'RefundDetails', component: RefundDetails},
+      { path: 'refund', name: 'Refund', component: Refund },
+      { path: 'compras', name: 'Compras', component: Compras },
+      { path: 'refundDetails', name: 'RefundDetails', component: RefundDetails },
       {
         path: 'produto-detalhes/:id',
         name: 'ProdutoDetalhes',
